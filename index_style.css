@@ -1,0 +1,75 @@
+body {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  background-color: #222831;
+  height: 70vh;
+}
+a {
+  color: #00adb5;
+  text-decoration: none; /*to remove the underline*/
+}
+
+#title {
+  /* animation link ->>  https://prismic.io/blog/css-text-animations) */
+  font-size: 5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: gray;
+  text-shadow: 1px 1px 0px blue, 2px 2px 0px red, 3px 3px 0px green,
+    4px 4px 0px #a8dadc, 5px 5px 0px #ff000d;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  animation: spin-3d 4s infinite linear;
+
+  /*font style*/
+  font-family: "Moo Lah Lah", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 {
+  margin: 0; padding: 0;
+  position:absolute;
+  top: 50%; left: 50%;
+  transform:translate(-50%,-50%);
+  font-size: 3em; color:transparent;
+  text-transform:uppercase;
+}
+h2 span:nth-child(1){
+  position:absolute;
+  top:0; left:0; color: red;
+  transition:0.8s;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  overflow:hidden;
+}
+h2:hover span:nth-child(1){
+  transform:translateY(-18px);
+}
+h2 span:nth-child(2){
+  position:absolute;
+  top:0; left:0; color: blue;
+  transition:0.8s;
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+  overflow:hidden;
+}
+h2:hover span:nth-child(2){
+  transform:translateY(18px);
+}
+h2 span:nth-child(3){
+  position:absolute;
+  top:50%; left: 0;
+  transform:translateY(-50%) scaleY(0);
+  width: 91%; color: #000;
+  background:gray;
+  font-size: 0.25em; font-weight: 500;
+  letter-spacing:0.7em;
+  text-align:center;
+  padding-left: 20px; margin-left: 5px;
+  transition:0.8s;
+}
+h2:hover span:nth-child(3){
+  transform:translateY(-50%) scaleY(1);
+}
