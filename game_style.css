@@ -1,4 +1,108 @@
-.board{
-  background-color: yellowgreen;
-  border: 1px solid red;
+body{
+  display:flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-content:center ;
+
+
+  background-color: #222831;
+
+  gap:0%  100%;
+}
+.boards-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: center;
+
+  height: 60%;
+  width: 80%;
+
+  gap: 0 25%;
+}
+
+.boards-container span{
+  flex-grow: 2;
+  display: flex;
+  gap: 0 47%;
+  justify-self: center;
+  width: 100%;
+  justify-content: center;
+
+  color: aqua;
+
+}
+
+
+.boards{
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  /*children related to each other */
+  align-items: start;
+  /*children related to the container*/
+  align-content: center;
+
+
+  max-height:400px;
+  max-width: 400px;
+
+  padding: 10px ;
+  border: red 2px solid;
+}
+
+
+.boards div{
+  border: 1px solid blue;
+
+  width: 35px;
+  height: 35px;
+
+}
+
+
+
+.ships-option{
+
+  background-color: bisque;
+  margin-top: 10%;
+}
+.ships-option span{
+  margin: 10px;
+  color: darkcyan;
+  font-size: 2em;
+}
+.ships-container{
+
+}
+.ship-1{
+  height: 25px;
+  width: 25px;
+  background-color: black;
+  margin: 10px;
+}
+.ship-2{
+  height: 25px;
+  width: 60px;
+  background-color: black;
+  margin: 10px;
+}
+.ship-3{
+  height: 25px;
+  width: 95px;
+  background-color: black;
+  margin: 10px;
+}
+.ship-4{
+  height: 25px;
+  width: 125px;
+  background-color: black;
+  margin: 10px;
+}
+
+.ships{
 }

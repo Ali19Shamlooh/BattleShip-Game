@@ -3,13 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--JS display-->
+    <script defer src="display-logic.js"></script>
     <!--Style sheet link-->
     <link href="game_style.css" rel="stylesheet">
+
+
     <title>BattleShip Game</title>
 </head>
 <body>
-    <div class="board">
-        Hi
+
+    <div class="boards-container"><!--this contains the player's boards -->
+
+        <div class="playerBoard">
+            <span>
+                <h3>Your board</h3>
+            </span>
+            <div class="boards">
+            </div>
+        </div>
+
+        <div class="opponentBoard">
+            <span>
+                <h3>Opponent board</h3>
+            </span>
+            <div class="boards">
+            </div>
+        </div>
+        <button id="rotate">Rotate</button>
     </div>
+
+    <div class="ships-option">
+        <span>Drag and Drop your ships</span>
+        <div class="ships-container">
+            <div class="ships ship-4" draggable="true"></div>
+            <div class="ships ship-3" draggable="true"></div>
+            <div class="ships ship-2" draggable="true"></div>
+            <div class="ships ship-2" draggable="true"></div>
+            <div class="ships ship-1" draggable="true"></div>
+            <div class="ships ship-1" draggable="true"></div>
+        </div>
+    </div>
+
+    <!--JS Logic-->
+    <script src="game-logic.js"></script>
 </body>
 </html>
