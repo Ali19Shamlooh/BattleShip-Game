@@ -48,9 +48,10 @@ body{
   align-content: center;
 
 
-  max-height:400px;
-  max-width: 400px;
-
+  max-height:500px;
+  min-height: 400px;
+  max-width: 500px;
+  min-width: 400px;
   padding: 10px ;
   border: red 2px solid;
 }
@@ -59,25 +60,38 @@ body{
 .boards div{
   border: 1px solid blue;
 
-  width: 35px;
-  height: 35px;
-
+  width: 45px;
+  height: 45px;
 }
 
+.cells{
+  padding: 0;
+}
 
+.ships{
+  margin: 0;
+}
 
 .ships-option{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+  align-items: center;
+  justify-content: center;
 
   background-color: bisque;
   margin-top: 10%;
+  width:50% ;
 }
 .ships-option span{
-  margin: 10px;
   color: darkcyan;
   font-size: 2em;
+  margin-right: 50px;
 }
 .ships-container{
-
+  display: flex;
+  margin-bottom: 70px;
+  margin-top: 60px;
 }
 .ship-1{
   height: 25px;
@@ -87,22 +101,19 @@ body{
 }
 .ship-2{
   height: 25px;
-  width: 60px;
+  width: 70px;
   background-color: black;
   margin: 10px;
 }
 .ship-3{
   height: 25px;
-  width: 95px;
+  width: 105px;
   background-color: black;
   margin: 10px;
 }
 .ship-4{
   height: 25px;
-  width: 125px;
+  width: 135px;
   background-color: black;
   margin: 10px;
-}
-
-.ships{
 }

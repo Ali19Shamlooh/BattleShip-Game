@@ -7,7 +7,8 @@
     <script defer src="display-logic.js"></script>
     <!--Style sheet link-->
     <link href="game_style.css" rel="stylesheet">
-
+<!--JS Logic-->
+    <script defer src="game-logic.js"></script>
 
     <title>BattleShip Game</title>
 </head>
@@ -30,22 +31,22 @@
             <div class="boards">
             </div>
         </div>
-        <button id="rotate">Rotate</button>
+
     </div>
 
     <div class="ships-option">
         <span>Drag and Drop your ships</span>
+        <button id="rotate">Rotate</button>
         <div class="ships-container">
-            <div class="ships ship-4" draggable="true"></div>
-            <div class="ships ship-3" draggable="true"></div>
-            <div class="ships ship-2" draggable="true"></div>
-            <div class="ships ship-2" draggable="true"></div>
-            <div class="ships ship-1" draggable="true"></div>
-            <div class="ships ship-1" draggable="true"></div>
+            <div class="ships ship-4" id="s4" draggable="true"></div>
+            <div class="ships ship-3" id="s3"draggable="true"></div>
+            <div class="ships ship-2" id="s2a"draggable="true"></div>
+            <div class="ships ship-2" id="s2b"draggable="true"></div>
+            <div class="ships ship-1" id="s1a"draggable="true"></div>
+            <div class="ships ship-1" id="s1b"draggable="true"></div>
         </div>
     </div>
 
-    <!--JS Logic-->
-    <script src="game-logic.js"></script>
+
 </body>
 </html>
