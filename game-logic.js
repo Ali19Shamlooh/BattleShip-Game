@@ -152,7 +152,7 @@ const ShowWin = () => {
   const textSpan = document.createElement("span")
   const resetBtn = document.createElement("button")
   //adding text to show
-  textSpan.innerText = "You Win!"
+  textSpan.innerText = "You Win!\nHala Madrid"
   resetBtn.innerText = "Restart"
   //adding the style class
   winDiv.classList.add("win-div")
