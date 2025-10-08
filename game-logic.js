@@ -12,7 +12,7 @@ let isWin = false // winning trigger
 let shipCells = [] // to save the cells that have been a ships
 let highScore = 100
 
-///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 
 //creates the cells inside each board (divs with class boards)
 function createCells() {
