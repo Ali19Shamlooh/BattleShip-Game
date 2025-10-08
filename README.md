@@ -1,5 +1,6 @@
 # 🚢 Battleship Game
 
+[My Game Link](1p-battleships.surge.sh)
 > **"Sink them all — before your tries run out!"**
 
 ---
@@ -23,7 +24,7 @@ Keep playing, track your high score, and see how efficient your sixth sense is.
 ## 🕹️ Gameplay Overview
 
 - 🎯 Click on cells to uncover what's beneath.
-- 🚢 "X" marks a hit — "." marks a miss.
+- 🚢 "💥" marks a hit — "🌊" marks a miss.
 - 🧠 The fewer tries you take, the higher your score!
 - 🔁 Try again and improve your accuracy each round.
 
