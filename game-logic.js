@@ -1,14 +1,17 @@
 //elements vars
 const boards = document.querySelectorAll(".boards")
 const counterSpan= document.querySelector('#counter')
+const highScoreSpan=document.querySelector('.high-score').querySelector('span')
+let resetBtn
 
 //normal vars
 let hitCounter= 0;
 let isWin= false; // winning trigger
 let shipCells= [] // to save the cells that have been a ships
+let highScore=100
 
 
-/////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 
 //creates the cells inside each board (divs with class boards)
 function createCells(){
@@ -26,7 +29,7 @@ function createCells(){
     }
   })
 }
-/////////////////////////////
+///////////////////////////////////////////////////////////////
 
 
 function onClick(cell){
@@ -50,19 +53,14 @@ function onClick(cell){
   //win condition
   console.log(shipCells)
   if(shipCells.length==0){
-    console.log(shipCells)
     ShowWin()
+    resetBtn = document.querySelector(".reset-btn")
   }
 }
 
 
-/////////////////////////////
+///////////////////////////////////////////////////////////////
 
-
-
-
-
-////////////////////////////////////
 
 //check if cell is a ship or not
 //return true if no mach found , false otherwise
@@ -83,10 +81,9 @@ const cruiser = new Ship(3); ships.push(cruiser)
 const destroyer = new Ship(2); ships.push(destroyer)
 const boat = new Ship(1); ships.push(boat)
 
-//////////////////////////////////
+////////////////////////////////////////////////////////////////////
 
 function placeShipsRandomly() {
-  //const taken = [] // to track occupied cells
 
   for (const ship of ships) {
     let isDeployed = false;//to check if the ship placed or not
@@ -99,10 +96,9 @@ function placeShipsRandomly() {
 
       for (let i = 0; i < ship.len; i++) {
         let next = isHorizontal ? start + i : start + (i * 10);
-        //if
 
         // Check out of bounds
-        const StartRow = Math.floor(start / 10) * 10;
+        const StartRow = Math.floor(start / 10) * 10; //example: floor(8/10)> 0 * 10 > startRow = 0
         if (isHorizontal && next >= StartRow + 10) {// invalid placement
           coords.length = 0;
           break;
@@ -123,13 +119,35 @@ function placeShipsRandomly() {
   }
 }
 ////////////////////////////////////
+
+function removeCells(){
+  const cells= document.querySelectorAll('.cells')
+  cells.forEach((cell)=>{
+    cell.remove()
+  })
+}
+//////////////////////////////////
+function removeWinDiv(){
+  const winDiv = document.querySelector('.win-div')
+  winDiv.remove()
+}
+//////////////////////////////////
+
+//reset function
+function reset(){
+  createCells()
+  placeShipsRandomly()
+  hitCounter=0
+}
+
+//////////////////////////////////
 const ShowWin= ()=>{
     //creating what I need to show
     const winDiv= document.createElement("div")
     const textSpan= document.createElement("span")
     const resetBtn = document.createElement("button")
     //adding text to show
-    textSpan.innerText= 'You Won!'
+    textSpan.innerText= 'You Win!'
     resetBtn.innerText= 'reset'
     //adding the style class
     winDiv.classList.add('win-div')
@@ -138,13 +156,20 @@ const ShowWin= ()=>{
     document.body.appendChild(winDiv)
     document.querySelector('.win-div').appendChild(textSpan)
     document.querySelector('.win-div').appendChild(resetBtn)
+    //eventlistener for the rest button
+    resetBtn.addEventListener("click", ()=>{
 
-    //reset function
-    
+      if(hitCounter<highScore){
+        highScore=hitCounter
+        highScoreSpan.innerText=`Least tries: ${highScore}`
+      }
+
+      removeCells()
+      removeWinDiv()
+      reset()
+    })
 }
+////////////////////////////////////////////////////////////////////
 
-
-//functions execution
-createCells()
-placeShipsRandomly()
-console.log(shipCells.length)
+//start function
+reset()

@@ -1,27 +1,31 @@
-body{
-  display:flex;
+body {
+  display: flex;
   flex-wrap: wrap;
 
   justify-content: center;
-  align-content:center ;
-
+  align-content: center;
 
   background-color: #222831;
 }
-.counter-container{
+.high-score{
+  width: 100%;
+  color: rgb(238, 238, 238);
+}
+
+.counter-container {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
 }
 
-#counter{
+#counter {
   font-size: 2em;
   color: aqua;
-  margin:5%;
+  margin: 5%;
 }
 
-.boards-container{
+.boards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -34,7 +38,7 @@ body{
   gap: 0 25%;
 }
 
-.boards{
+.boards {
   flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
@@ -45,23 +49,21 @@ body{
   /*children related to the container*/
   align-content: center;
 
-
-  max-height:500px;
+  max-height: 500px;
   min-height: 400px;
   max-width: 500px;
   min-width: 400px;
-  padding: 10px ;
+  padding: 10px;
   border: red 2px solid;
 }
 
-
-.boards div{
+.boards div {
   border: 1px solid blue;
   width: 45px;
   height: 45px;
 }
 
-.cells{
+.cells {
   padding: 0 0 0 3px;
   color: red;
   font-size: 3em;
@@ -72,14 +74,14 @@ body{
   justify-content: center;
 }
 
-.win-div{
+.win-div {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 2;
 
   display: flex;
@@ -87,15 +89,35 @@ body{
   justify-content: center;
 }
 
-.win-div span{
+.win-div span {
   color: aqua;
   font-size: 3em;
   margin-bottom: 10%;
+
+
+	place-self: center;
+	background: linear-gradient(90deg, #00f, #0ff, #00f) -100%/ 200%;
+	/* being excessively careful with compat,
+	 * though this has been supported unprefixed and
+	 * in the shorthand across major browsers for a while */
+	-webkit-background-clip: text;
+	        background-clip: text;
+	/* use color, don't use -webkit-text-fill-color anymore,
+	 * was meant to solve a problem we haven't had in years */
+	color: transparent;
+	font: 900 clamp(2em, 10vw, 10em) exo, sans-serif;
+	animation: shimmer 2s linear infinite
+}
+
+@keyframes shimmer { to { background-position: 100% } }
+
+
+.ship{
+  background-color: green;
 }
 
 
-.ship {
-}
+
 
 
 /* .boards-container span{
@@ -109,9 +131,6 @@ body{
   color: aqua;
 
 } */
-
-
-
 
 /* .ships{
   margin: 0;
