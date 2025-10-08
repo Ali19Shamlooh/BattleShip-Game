@@ -52,9 +52,9 @@ body {
   align-content: center;
 
   max-height: 500px;
-  min-height: 400px;
+  min-height: 500px;
   max-width: 500px;
-  min-width: 400px;
+  min-width: 500px;
   padding: 20px 0 20px 0;
 
   border: 10px groove rgb(149, 149, 149);
@@ -122,6 +122,6 @@ body {
   font-size: 3em;
 }
 
-.ship{
+/* .ship{
   background-color: antiquewhite;
-}
+} */
