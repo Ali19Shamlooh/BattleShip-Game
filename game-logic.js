@@ -43,7 +43,6 @@ function onClick(cell) {
       //its not ship any more (removing it from shipCells)
       if (shipCell == cell.target.id) {
         shipCells.splice(index, 1)
-        console.log(shipCells)
       }
     })
   } else {
@@ -53,7 +52,6 @@ function onClick(cell) {
   cell.target.removeEventListener("click", onClick) //cant be clicked again
 
   //win condition
-  console.log(shipCells)
   if (shipCells.length == 0) {
     ShowWin()
     resetBtn = document.querySelector(".reset-btn")
