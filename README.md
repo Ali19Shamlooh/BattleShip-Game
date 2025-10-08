@@ -1,6 +1,6 @@
 # 🚢 Battleship Game
 
-[My Game Link](1p-battleships.surge.sh)
+[My Game Link](https://1p-battleships.surge.sh/)
 > **"Sink them all — before your tries run out!"**
 
 ---
