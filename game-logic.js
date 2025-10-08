@@ -71,11 +71,13 @@ const isNotOccupied = (cell)=>{
 
 ////////////////////////////////////
 let ships=[]
+
 class Ship{
   constructor(len){
     this.len= len
   }
 }
+//ship instances
 const battleship = new Ship(4); ships.push(battleship)
 const cruiser = new Ship(3); ships.push(cruiser)
 const destroyer = new Ship(2); ships.push(destroyer)
