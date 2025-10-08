@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--font reference-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
     <!--Style sheet link-->
     <link href="game_style.css" rel="stylesheet">
 <!--JS Logic-->
@@ -10,29 +14,28 @@
 
     <title>BattleShip Game</title>
 </head>
+
 <body>
-
-    <div class="boards-container"><!--this contains the player's boards -->
-
+    <div class="counter-container"><span id="counter">tries : 0</span></div>
+    <div class="boards-container"><!--this contains the game board -->
         <div class="playerBoard">
-            <span>
-                <h3>Your board</h3>
-            </span>
             <div class="boards">
             </div>
         </div>
 
-        <div class="opponentBoard">
+
+
+        <!-- <div class="opponentBoard">
             <span>
                 <h3>Opponent board</h3>
             </span>
             <div class="boards">
             </div>
-        </div>
+        </div> -->
 
     </div>
 
-    <div class="ships-option">
+    <!-- <div class="ships-option">
         <span>Drag and Drop your ships</span>
         <button id="rotate">Rotate</button>
         <div class="ships-container">
@@ -43,7 +46,7 @@
             <div class="ships ship-1" id="s1a"draggable="true"></div>
             <div class="ships ship-1" id="s1b"draggable="true"></div>
         </div>
-    </div>
+    </div> -->
 
 
 </body>

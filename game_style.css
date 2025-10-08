@@ -7,9 +7,20 @@ body{
 
 
   background-color: #222831;
-
-  gap:0%  100%;
 }
+.counter-container{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+#counter{
+  font-size: 2em;
+  color: aqua;
+  margin:5%;
+}
+
 .boards-container{
   display: flex;
   flex-wrap: wrap;
@@ -22,19 +33,6 @@ body{
 
   gap: 0 25%;
 }
-
-.boards-container span{
-  flex-grow: 2;
-  display: flex;
-  gap: 0 47%;
-  justify-self: center;
-  width: 100%;
-  justify-content: center;
-
-  color: aqua;
-
-}
-
 
 .boards{
   flex-grow: 1;
@@ -59,20 +57,68 @@ body{
 
 .boards div{
   border: 1px solid blue;
-
   width: 45px;
   height: 45px;
 }
 
 .cells{
-  padding: 0;
+  padding: 0 0 0 3px;
+  color: red;
+  font-size: 3em;
+  font-family: "Comfortaa", sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.ships{
+.win-div{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0,0,0,0.7);
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.win-div span{
+  color: aqua;
+  font-size: 3em;
+  margin-bottom: 10%;
+}
+
+
+.ship {
+  background-color: steelblue;
+}
+
+
+/* .boards-container span{
+  flex-grow: 2;
+  display: flex;
+  gap: 0 47%;
+  justify-self: center;
+  width: 100%;
+  justify-content: center;
+
+  color: aqua;
+
+} */
+
+
+
+
+/* .ships{
   margin: 0;
-}
+} */
 
-.ships-option{
+/* .ships-option{
   display: flex;
   flex-wrap: wrap;
   align-content: space-evenly;
@@ -116,4 +162,4 @@ body{
   width: 135px;
   background-color: black;
   margin: 10px;
-}
+} */

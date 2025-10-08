@@ -15,8 +15,10 @@ function createCells(){
   boards.forEach((board)=>{
     for(let i =0 ; i <= 99; i++){ // for 100 times
       const cell = document.createElement("div") //create a cell
+      const cellSymbol= document.createElement('span')
       cell.classList.add("cells") //add class "cells" to it
       cell.id = `${i}` // add it's number as an id
+      cell.appendChild(cellSymbol)
       board.appendChild(cell) // add "cell" to DOM inside the div with class "board"
 
       //click event listener
@@ -24,33 +26,33 @@ function createCells(){
         hitCounter++
         counterSpan.innerText= `tries : ${hitCounter}`
 
-        //
-        cell.classList.forEach((className)=>{
-          if(className == "ship"){//chick if the cell is ship or not
-            cell.innerText='X'
-          }
-        })
 
+        // if(){
+        //   ShowWin(isWin)
+        // }
 
-        checkWin(isWin)
       })
     }
   })
 }
 /////////////////////////////
 
-const checkWin= (isWin)=>{
-  if(isWin){
+const ShowWin= (win)=>{
+  if(win){
     //creating what I need to show
     const winDiv= document.createElement("div")
     const textSpan= document.createElement("span")
+    const resetBtn = document.createElement("button")
     //adding text to show
     textSpan.innerText= 'You Won!'
+    resetBtn.innerText= 'reset'
     //adding the style class
     winDiv.classList.add('win-div')
+    resetBtn.classList.add('reset-btn')
     //assigning them to the body
     document.body.appendChild(winDiv)
-    document.querySelector('.win-div').appendChild(textSpan)
+    document.querySelector('.win-div').appendChild(textSpan, resetBtn)
+    //
   }
 }
 
@@ -60,31 +62,61 @@ const checkWin= (isWin)=>{
 //check if cell is a ship or not
 //return true if no mach found , false otherwise
 const isNotOccupied = (cell)=>{
-  return shipCells.every((cellID=>{
-    cellID!=cell
-  }))
+  return shipCells.every((cellID)=> cellID!=cell
+  )
 }
 
 ////////////////////////////////////
 let ships=[]
-class ship{
+class Ship{
   constructor(len){
     this.len= len
   }
 }
-const battleship = ship(4); ships.push(battleship)
-const cruiser = ship(3); ships.push(cruiser)
-const destroyer = ship(2); ships.push(destroyer)
-const boat = ship(1); ships.push(boat)
+const battleship = new Ship(4); ships.push(battleship)
+const cruiser = new Ship(3); ships.push(cruiser)
+const destroyer = new Ship(2); ships.push(destroyer)
+const boat = new Ship(1); ships.push(boat)
 
-// const ships = [
-//   { name: "battleship", size: 4 },
-//   { name: "cruiser", size: 3 },
-//   { name: "destroyer", size: 2 },
-//   {name:'1', size:1}
-// ];
 //////////////////////////////////
 
+function placeShipsRandomly() {
+  //const taken = [] // to track occupied cells
+
+  for (const ship of ships) {
+    let isDeployed = false;//to check if the ship placed or not
+    while (!isDeployed) {
+
+      const isHorizontal = Math.random() < 0.5;
+      const start = Math.floor(Math.random() * 100); //the cell location that will start converting to ship
+
+      const coords = []; // inbound cells (not placed yet)
+
+      for (let i = 0; i < ship.len; i++) {
+        let next = isHorizontal ? start + i : start + (i * 10);
+        //if
+
+        // Check out of bounds
+        const StartRow = Math.floor(start / 10) * 10;
+        if (isHorizontal && next >= StartRow + 10) {// invalid placement
+          coords.length = 0;
+          break;
+        }
+        if (next > 100) {// out of grid
+          coords.length = 0;
+          break;
+        }
+        coords.push(next);
+      }
+      // If all coordinates valid and not overlapping
+      if (coords.length == ship.len && coords.every((c)=>isNotOccupied(c))) {
+        coords.forEach(cellID => document.getElementById(cellID).classList.add('ship'));
+        shipCells.push(...coords)
+        isDeployed = true;
+      }
+    }
+  }
+}
 ////////////////////////////////////
 
 
