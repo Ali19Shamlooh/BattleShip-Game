@@ -21,17 +21,26 @@ function createCells(){
       cell.appendChild(cellSymbol)
       board.appendChild(cell) // add "cell" to DOM inside the div with class "board"
 
-      //click event listener
-      cell.addEventListener('click',(cell)=>{
+      function onClick(cell){
         hitCounter++
         counterSpan.innerText= `tries : ${hitCounter}`
 
-
-        // if(){
-        //   ShowWin(isWin)
-        // }
-
-      })
+        //ship hit
+        if(cell.target.classList.contains('ship')){
+          cell.target.querySelector('span').innerText='X' //write X
+          shipCells.forEach((shipCell)=>{//its not ship any more (removing it from shipCells)
+            if(shipCell == cell.id){
+              shipCells[index].remove()
+            }
+          })
+        }else{//non ship hit
+          cell.target.innerText = "."
+        }
+        cell.target.removeEventListener('click',onClick)//cant be clicked again
+      }
+      
+      //click event listener
+      cell.addEventListener('click',onClick)
     }
   })
 }
