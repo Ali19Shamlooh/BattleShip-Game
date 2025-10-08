@@ -20,50 +20,46 @@ function createCells(){
       cell.id = `${i}` // add it's number as an id
       cell.appendChild(cellSymbol)
       board.appendChild(cell) // add "cell" to DOM inside the div with class "board"
-
-      function onClick(cell){
-        hitCounter++
-        counterSpan.innerText= `tries : ${hitCounter}`
-
-        //ship hit
-        if(cell.target.classList.contains('ship')){
-          cell.target.querySelector('span').innerText='X' //write X
-          shipCells.forEach((shipCell)=>{//its not ship any more (removing it from shipCells)
-            if(shipCell == cell.id){
-              shipCells[index].remove()
-            }
-          })
-        }else{//non ship hit
-          cell.target.innerText = "."
-        }
-        cell.target.removeEventListener('click',onClick)//cant be clicked again
-      }
-      
       //click event listener
       cell.addEventListener('click',onClick)
+
     }
   })
 }
 /////////////////////////////
 
-const ShowWin= (win)=>{
-  if(win){
-    //creating what I need to show
-    const winDiv= document.createElement("div")
-    const textSpan= document.createElement("span")
-    const resetBtn = document.createElement("button")
-    //adding text to show
-    textSpan.innerText= 'You Won!'
-    resetBtn.innerText= 'reset'
-    //adding the style class
-    winDiv.classList.add('win-div')
-    resetBtn.classList.add('reset-btn')
-    //assigning them to the body
-    document.body.appendChild(winDiv)
-    document.querySelector('.win-div').appendChild(textSpan, resetBtn)
-    //
+
+function onClick(cell){
+  hitCounter++
+  counterSpan.innerText= `tries : ${hitCounter}`
+
+  //ship hit
+  if(cell.target.classList.contains('ship')){
+  cell.target.querySelector('span').innerText='X' //write X
+    shipCells.forEach((shipCell,index)=>{//its not ship any more (removing it from shipCells)
+      if(shipCell == cell.target.id){
+        shipCells.splice(index,1)
+        console.log(shipCells)
+      }
+    })
+  }else{//non ship hit
+    cell.target.innerText = "."
+  }
+  cell.target.removeEventListener('click',onClick)//cant be clicked again
+
+  //win condition
+  console.log(shipCells)
+  if(shipCells.length==0){
+    console.log(shipCells)
+    ShowWin()
   }
 }
+
+
+/////////////////////////////
+
+
+
 
 
 ////////////////////////////////////
@@ -127,10 +123,28 @@ function placeShipsRandomly() {
   }
 }
 ////////////////////////////////////
+const ShowWin= ()=>{
+    //creating what I need to show
+    const winDiv= document.createElement("div")
+    const textSpan= document.createElement("span")
+    const resetBtn = document.createElement("button")
+    //adding text to show
+    textSpan.innerText= 'You Won!'
+    resetBtn.innerText= 'reset'
+    //adding the style class
+    winDiv.classList.add('win-div')
+    resetBtn.classList.add('reset-btn')
+    //assigning them to the body
+    document.body.appendChild(winDiv)
+    document.querySelector('.win-div').appendChild(textSpan)
+    document.querySelector('.win-div').appendChild(resetBtn)
 
+    //reset function
+    
+}
 
 
 //functions execution
-
 createCells()
 placeShipsRandomly()
+console.log(shipCells.length)
