@@ -20,10 +20,10 @@ function createCells() {
     for (let i = 0; i <= 99; i++) {
       // for 100 times
       const cell = document.createElement("div") //create a cell
-      const cellSymbol = document.createElement("span")
+      const cellSpan = document.createElement("span")
       cell.classList.add("cells") //add class "cells" to it
       cell.id = `${i}` // add it's number as an id
-      cell.appendChild(cellSymbol)
+      cell.appendChild(cellSpan)
       board.appendChild(cell) // add "cell" to DOM inside the div with class "board"
       //click event listener
       cell.addEventListener("click", onClick)
@@ -38,7 +38,7 @@ function onClick(cell) {
 
   //ship hit
   if (cell.target.classList.contains("ship")) {
-    cell.target.querySelector("span").innerText = "X" //write X
+    cell.target.querySelector("span").innerText = '💥' //write X
     shipCells.forEach((shipCell, index) => {
       //its not ship any more (removing it from shipCells)
       if (shipCell == cell.target.id) {
@@ -47,7 +47,7 @@ function onClick(cell) {
     })
   } else {
     //non ship hit
-    cell.target.innerText = "."
+    cell.target.innerText = "🌊"
   }
   cell.target.removeEventListener("click", onClick) //cant be clicked again
 
