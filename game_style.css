@@ -122,6 +122,6 @@ body {
   font-size: 3em;
 }
 
-.reset-btn :hover {
-  background-color: default;
+.ship{
+  background-color: antiquewhite;
 }
