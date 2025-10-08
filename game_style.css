@@ -7,9 +7,11 @@ body {
 
   background-color: #222831;
 }
+
 .high-score{
   width: 100%;
   color: rgb(238, 238, 238);
+  font-size: 1.5em;
 }
 
 .counter-container {
@@ -57,13 +59,11 @@ body {
   border: red 2px solid;
 }
 
-.boards div {
+.cells {
   border: 1px solid blue;
   width: 45px;
   height: 45px;
-}
 
-.cells {
   padding: 0 0 0 3px;
   color: red;
   font-size: 3em;
@@ -81,29 +81,28 @@ body {
   width: 100%;
   height: 100%;
 
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(57, 62, 70,0.7);
   z-index: 2;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .win-div span {
+  text-align: center;
   color: aqua;
   font-size: 3em;
-  margin-bottom: 10%;
+  margin-bottom: 0;
+  min-width: 100%;
 
-
+/*font style link: https://codepen.io/thebabydino/pen/RNNQNxx*/
 	place-self: center;
 	background: linear-gradient(90deg, #00f, #0ff, #00f) -100%/ 200%;
-	/* being excessively careful with compat,
-	 * though this has been supported unprefixed and
-	 * in the shorthand across major browsers for a while */
+
 	-webkit-background-clip: text;
 	        background-clip: text;
-	/* use color, don't use -webkit-text-fill-color anymore,
-	 * was meant to solve a problem we haven't had in years */
 	color: transparent;
 	font: 900 clamp(2em, 10vw, 10em) exo, sans-serif;
 	animation: shimmer 2s linear infinite
@@ -112,9 +111,17 @@ body {
 @keyframes shimmer { to { background-position: 100% } }
 
 
-.ship{
-  background-color: green;
+
+.reset-btn{
+  background-color: darkcyan;
+  margin-top: -50%;
+  font-size: 3em;
 }
+
+.reset-btn :hover{
+  background-color: default;
+}
+
 
 
 
