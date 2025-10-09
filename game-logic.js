@@ -38,7 +38,7 @@ function onClick(cell) {
 
   //ship hit
   if (cell.target.classList.contains("ship")) {
-    cell.target.querySelector("span").innerText = '💥' //write X
+    cell.target.querySelector("span").innerText = "💥" //write X
     shipCells.forEach((shipCell, index) => {
       //its not ship any more (removing it from shipCells)
       if (shipCell == cell.target.id) {
@@ -53,7 +53,7 @@ function onClick(cell) {
 
   //win condition
   if (shipCells.length == 0) {
-    ShowWin()
+    showWin()
     resetBtn = document.querySelector(".reset-btn")
   }
 }
@@ -99,8 +99,8 @@ function placeShipsRandomly() {
         let next = isHorizontal ? start + i : start + i * 10
 
         // Check out of bounds
-        const StartRow = Math.floor(start / 10) * 10 //example: floor(8/10)> 0 * 10 > startRow = 0
-        if (isHorizontal && next >= StartRow + 10) {
+        const startRow = Math.floor(start / 10) * 10 //example: floor(8/10)> 0 * 10 > startRow = 0
+        if (isHorizontal && next >= startRow + 10) {
           // invalid placement
           coords.length = 0
           break
@@ -146,7 +146,7 @@ function reset() {
 }
 
 //////////////////////////////////
-const ShowWin = () => {
+const showWin = () => {
   //creating what I need to show
   const winDiv = document.createElement("div")
   const textSpan = document.createElement("span")
